@@ -112,6 +112,7 @@ Lifecycle events are logged using the tag:
 BankMateLifecycle
 
 ### OutputScreenshot
+
  <img width="1920" height="1080" alt="MAD LAB INTERNAl" src="https://github.com/user-attachments/assets/f3916ba2-9137-4717-af02-832de9bd41ba" />
 <img width="1920" height="1080" alt="MAD LAB INTERNAL 2" src="https://github.com/user-attachments/assets/b6897d3a-6182-4e20-bb5c-55e9a5c87c2f" />
 <img width="1920" height="1080" alt="LAB 3" src="https://github.com/user-attachments/assets/016f9562-e29f-4e21-b953-d67de4a1d83d" />
@@ -122,6 +123,7 @@ BankMateLifecycle
 
 
 ### File Structure
+
 BankMateLabinternal/
 │
 ├── app/
