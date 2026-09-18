@@ -20,19 +20,12 @@
             android:layout_marginBottom="20dp" />
 
         <TextView
+            android:id="@+id/historyTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Transaction 1&#10;&#10;Amount: ₹2,000&#10;Beneficiary: Rahul&#10;Mode: UPI&#10;Status: Successful"
+            android:text="No transactions yet."
             android:textSize="17sp"
             android:padding="10dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Transaction 2&#10;&#10;Amount: ₹5,000&#10;Beneficiary: ABC Store&#10;Mode: NEFT&#10;Status: Successful"
-            android:textSize="17sp"
-            android:padding="10dp"
-            android:layout_marginTop="10dp" />
 
     </LinearLayout>
 

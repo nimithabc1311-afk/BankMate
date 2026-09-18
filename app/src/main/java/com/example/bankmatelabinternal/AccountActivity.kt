@@ -3,17 +3,22 @@ package com.example.bankmatelabinternal
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class AccountActivity : AppCompatActivity() {
 
     private val tag = "BankMateLifecycle"
 
+    private lateinit var balanceTextView: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account)
 
         Log.d(tag, "AccountActivity: onCreate")
+
+        balanceTextView = findViewById(R.id.balanceTextView)
 
         val accountDetailsButton =
             findViewById<Button>(R.id.accountDetailsButton)
@@ -59,16 +64,33 @@ class AccountActivity : AppCompatActivity() {
                 )
                 .commit()
         }
+
+        updateBalance()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d(tag, "AccountActivity: onResume")
+
+        updateBalance()
+    }
+
+    private fun updateBalance() {
+
+        val preferences =
+            getSharedPreferences("BankMateData", MODE_PRIVATE)
+
+        val balance =
+            preferences.getFloat("balance", 50000f)
+
+        balanceTextView.text =
+            "Available Balance: ₹${balance.toInt()}"
     }
 
     override fun onStart() {
         super.onStart()
         Log.d(tag, "AccountActivity: onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(tag, "AccountActivity: onResume")
     }
 
     override fun onPause() {

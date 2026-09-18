@@ -37,6 +37,7 @@
         android:padding="6dp" />
 
     <TextView
+        android:id="@+id/detailsBalanceTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Available Balance: ₹50,000"

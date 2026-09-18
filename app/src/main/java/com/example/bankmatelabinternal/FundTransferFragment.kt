@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -48,17 +49,30 @@ class FundTransferFragment : Fragment() {
             val accountNumber =
                 accountNumberEditText.text.toString().trim()
 
-            val amount =
+            val amountText =
                 amountEditText.text.toString().trim()
 
             if (beneficiary.isEmpty() ||
                 accountNumber.isEmpty() ||
-                amount.isEmpty()
+                amountText.isEmpty()
             ) {
 
                 Toast.makeText(
                     requireContext(),
                     "Please enter all transfer details",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                return@setOnClickListener
+            }
+
+            val amount = amountText.toFloatOrNull()
+
+            if (amount == null || amount <= 0) {
+
+                Toast.makeText(
+                    requireContext(),
+                    "Please enter a valid amount",
                     Toast.LENGTH_SHORT
                 ).show()
 
@@ -80,17 +94,72 @@ class FundTransferFragment : Fragment() {
             }
 
             val transferMode =
-                view.findViewById<android.widget.RadioButton>(selectedId)
+                view.findViewById<RadioButton>(selectedId)
                     .text.toString()
 
-            val intent = Intent(
-                requireContext(),
-                TransactionActivity::class.java
-            )
+            // Get current balance
+            val preferences =
+                requireContext().getSharedPreferences(
+                    "BankMateData",
+                    android.content.Context.MODE_PRIVATE
+                )
+
+            val currentBalance =
+                preferences.getFloat("balance", 50000f)
+
+            // Check sufficient balance
+            if (amount > currentBalance) {
+
+                Toast.makeText(
+                    requireContext(),
+                    "Insufficient balance",
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                return@setOnClickListener
+            }
+
+            // Deduct amount
+            val newBalance =
+                currentBalance - amount
+
+            // Save new balance
+            preferences.edit()
+                .putFloat("balance", newBalance)
+                .apply()
+
+            // Save transaction
+            val oldHistory =
+                preferences.getString("history", "") ?: ""
+
+            val newTransaction =
+                "Beneficiary: $beneficiary\n" +
+                        "Account Number: $accountNumber\n" +
+                        "Amount: ₹${amount.toInt()}\n" +
+                        "Mode: $transferMode\n" +
+                        "Status: Successful"
+
+            val updatedHistory =
+                if (oldHistory.isEmpty()) {
+                    newTransaction
+                } else {
+                    "$newTransaction\n\n$oldHistory"
+                }
+
+            preferences.edit()
+                .putString("history", updatedHistory)
+                .apply()
+
+            // Open transaction screen
+            val intent =
+                Intent(
+                    requireContext(),
+                    TransactionActivity::class.java
+                )
 
             intent.putExtra("beneficiary", beneficiary)
             intent.putExtra("accountNumber", accountNumber)
-            intent.putExtra("amount", amount)
+            intent.putExtra("amount", amountText)
             intent.putExtra("transferMode", transferMode)
 
             startActivity(intent)
