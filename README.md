@@ -120,43 +120,6 @@ BankMateLifecycle
 <img width="1920" height="1080" alt="LAB 5" src="https://github.com/user-attachments/assets/491e67ba-804c-4243-920b-98d67a04cffb" />
 <img width="1920" height="1020" alt="LAB6" src="https://github.com/user-attachments/assets/487e32f2-f688-4a85-b7de-0d2ab95377e4" />
 
-
-
-### File Structure
-
-BankMateLabinternal/
-│
-├── app/
-│   │
-│   └── src/
-│       └── main/
-│           │
-│           ├── java/
-│           │   └── com/
-│           │       └── example/
-│           │           └── bankmatelabinternal/
-│           │               │
-│           │               ├── MainActivity.kt
-│           │               ├── AccountActivity.kt
-│           │               ├── TransactionActivity.kt
-│           │               ├── AccountDetailsFragment.kt
-│           │               ├── FundTransferFragment.kt
-│           │               └── TransactionHistoryFragment.kt
-│           │
-│           ├── res/
-│           │   └── layout/
-│           │       ├── activity_account.xml
-│           │       ├── activity_transaction.xml
-│           │       ├── fragment_account_details.xml
-│           │       ├── fragment_fund_transfer.xml
-│           │       └── fragment_transaction_history.xml
-│           │
-│           └── AndroidManifest.xml
-│
-├── screenshots/
-│
-└── README.md
-
 ### Conclusion
 
 The BankMate Personal Banking Application was successfully developed using Android Studio and Kotlin.
