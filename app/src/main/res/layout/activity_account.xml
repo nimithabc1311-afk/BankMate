@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BankMate - Personal Banking"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer Name: Nimitha BC"
+        android:textSize="18sp"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Number: 1234567890"
+        android:textSize="18sp"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Available Balance: ₹50,000"
+        android:textSize="18sp"
+        android:padding="5dp"
+        android:layout_marginBottom="15dp" />
+
+    <Button
+        android:id="@+id/accountDetailsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Details" />
+
+    <Button
+        android:id="@+id/fundTransferButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fund Transfer" />
+
+    <Button
+        android:id="@+id/transactionHistoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Transaction History" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

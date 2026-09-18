@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Details"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Customer Name: Nimitha BC"
+        android:textSize="17sp"
+        android:padding="6dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="USN: 25MCAR0132"
+        android:textSize="17sp"
+        android:padding="6dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Number: 1234567890"
+        android:textSize="17sp"
+        android:padding="6dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Available Balance: ₹50,000"
+        android:textSize="17sp"
+        android:padding="6dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Account Type: Savings Account"
+        android:textSize="17sp"
+        android:padding="6dp" />
+
+</LinearLayout>
